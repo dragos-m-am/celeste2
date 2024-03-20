@@ -9,5 +9,4 @@ FAISS-cpu
 elevenlabs
 SpeechRecognition
 python-dotenv
-pyaudio
 langchain

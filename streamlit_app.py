@@ -4,7 +4,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.schema import HumanMessage, SystemMessage
 import time
 
-import speech_recognition as sr
+#import speech_recognition as sr
 
 
 
@@ -23,15 +23,15 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
-def speech_to_text():
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        audio = r.listen(source)
-        try:
-            text = r.recognize_google(audio)
-            return text
-        except:
-            text = 'Ohhh, I can\'t hear your dj voice. Please sing to me again!'
+#def speech_to_text():
+#    r = sr.Recognizer()
+#    with sr.Microphone() as source:
+#        audio = r.listen(source)
+#        try:
+#            text = r.recognize_google(audio)
+#            return text
+#        except:
+#            text = 'Ohhh, I can\'t hear your dj voice. Please sing to me again!'
 
 
 
@@ -113,43 +113,6 @@ if('button_message' not in st.session_state):
     st.session_state['button_message']="Talk to me baby!"
 
 # voice part
-record_btn = st.button(st.session_state['button_message'], st.session_state['running'])
-is_recording:bool=False
-status:str=""
-
-if record_btn:
-    st.session_state['running'] = False
-    st.session_state['button_message'] = "Recording..."
-    st.session_state['status'] = 'Recording...'
-    text = speech_to_text()
-    if text:
-        st.session_state.messages.append({
-            'role': 'user',
-            'content': text
-        })
-    else:
-        st.session_state.messages.append(
-            {
-                'role': 'assistant',
-                'content':"Oh wow, oh...i can't hear your sexy voice.."
-            })
-    with st.chat_message("user"):
-        st.markdown(option)
-    st.session_state['status'] = ''
-    st.session_state['button_message'] = "Talk to me baby!"
-    
-    with st.chat_message("assistant"):
-        message_placeholder = st.empty()
-        full_response = ""
-    
-    all_response = generate_response(text)
-    for response in all_response:
-        full_response+=response
-        time.sleep(0.003)
-        message_placeholder.markdown(full_response + "▌")
-    message_placeholder.markdown(full_response)
-    st.session_state.messages.append({"role":"assistant", "content":full_response})
-    st.session_state['running'] = True
 
 
 if option:
