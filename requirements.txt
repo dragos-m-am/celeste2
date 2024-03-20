@@ -1,0 +1,13 @@
+streamlit
+langchain
+unstructured
+pandas
+chromadb
+tiktoken
+openai
+FAISS-cpu
+elevenlabs
+SpeechRecognition
+python-dotenv
+pyaudio
+langchain
