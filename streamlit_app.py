@@ -35,10 +35,10 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
 
-openai_api_key=secrets["open_ai"]
+openai_api_key=st.secrets["open_ai"]
 
 import os
-os.environ['OPENAI_API_KEY'] = secrets["open_ai"]
+os.environ['OPENAI_API_KEY'] = st.secrets["open_ai"]
 
 
 
